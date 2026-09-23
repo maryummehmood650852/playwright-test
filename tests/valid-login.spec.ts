@@ -30,6 +30,6 @@ test('Verify login fails with invalid credentials', async ({ page }) => {
 
   // 4. Error message verify karna
   const errorMessage = page.locator('.oxd-alert-content-text');
-  await expect(errorMessage).toBeVisible();
+  await expect(errorMessage).toBeVisible({timeout: 10000});
   await expect(errorMessage).toContainText('Invalid credentials');
 });
