@@ -1,7 +1,5 @@
 # Node.js
 # Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
 - main
@@ -14,8 +12,13 @@ steps:
 
 - task: NodeTool@0
   inputs:
-    versionSpec: '18.x'
+    versionSpec: '20.x'
   displayName: 'Install Node.js'
+
+- script: |
+    node --version
+    npm --version
+  displayName: 'Check Node.js Version'
 
 - script: |
     npm ci
